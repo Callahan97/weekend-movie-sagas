@@ -27,6 +27,7 @@ function* fetchAllMovies() {
 function* fetchMovieDetails(action) {  
   try {
     const movieResponse = yield axios.get(`/api/movies/${action.payload}`);
+    console.log('Fetched movie details:', movieResponse.data);
     yield put({
       type: 'SET_MOVIE_DETAILS',
       payload: movieResponse.data
@@ -64,6 +65,7 @@ const genres = (state = [], action) => {
 const selectedMovie = (state = null, action) => {  
   switch (action.type) {
     case 'SET_MOVIE_DETAILS':
+      console.log('Setting movie details:', action.payload);
       return action.payload;
     default:
       return state;
