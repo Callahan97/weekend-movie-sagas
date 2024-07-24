@@ -20,7 +20,7 @@ function MovieList() {
           return (
             <div data-testid='movieItem' key={movie.id}>
               <h3>{movie.title}</h3>
-              <Link to={`/details/${movie.id}`}>
+              <Link to={`/details/${movie.id}`} data-testid="toDetails">
               <img src={movie.poster} alt={movie.title}/>
               </Link>
             </div>
